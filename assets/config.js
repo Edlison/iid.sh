@@ -3,16 +3,22 @@ export const siteConfig = {
   baseUrl: "https://iid.sh",
   tools: [
     {
+      id: "color",
+      name: "color",
+      description: "Academic Color Palettes.",
+      path: "/color",
+    },
+    {
+      id: "pastebin",
+      name: "pastebin",
+      description: "Share a snippet of text or code.",
+      path: "/pastebin",
+    },
+    {
       id: "url",
       name: "tinyurl",
       description: "Shorten a long URL into something easy to share.",
       path: "/url",
-    },
-    {
-      id: "img",
-      name: "img upload",
-      description: "Upload an image and get a shareable link.",
-      path: "/img",
     },
     {
       id: "diff",
@@ -21,10 +27,10 @@ export const siteConfig = {
       path: "/diff",
     },
     {
-      id: "pastebin",
-      name: "pastebin",
-      description: "Share a snippet of text or code.",
-      path: "/pastebin",
+      id: "img",
+      name: "img upload",
+      description: "Upload an image and get a shareable link.",
+      path: "/img",
     },
     {
       id: "status",
