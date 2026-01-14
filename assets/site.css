@@ -1,0 +1,182 @@
+:root {
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --text: #0a0a0a;
+  --muted: rgba(10, 10, 10, 0.68);
+  --bg: #ffffff;
+  --hairline: rgba(10, 10, 10, 0.14);
+  --link: rgba(10, 10, 10, 0.86);
+  --link-hover: rgba(10, 10, 10, 1);
+
+  /* Layout */
+  --container: 670px;
+  --page-pad: clamp(22px, 5vw, 52px);
+  --top: 70px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.68);
+    --bg: #0a0a0a;
+    --hairline: rgba(255, 255, 255, 0.14);
+    --link: rgba(255, 255, 255, 0.88);
+    --link-hover: rgba(255, 255, 255, 1);
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  min-height: 100%;
+  padding: var(--page-pad);
+  padding-top: calc(var(--page-pad) + var(--top));
+}
+
+.container {
+  width: min(var(--container), 100%);
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: clamp(18px, 3.2vw, 34px);
+}
+
+.brand {
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 40%, transparent);
+  padding-bottom: 2px;
+}
+
+a:hover {
+  color: var(--link-hover);
+  border-bottom-color: color-mix(in srgb, var(--link-hover) 70%, transparent);
+}
+
+.hairline {
+  height: 1px;
+  background: var(--hairline);
+  margin: clamp(18px, 3.2vw, 34px) 0;
+}
+
+h1 {
+  margin: 0 0 18px;
+  font-size: clamp(34px, 4.4vw, 54px);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  font-weight: 650;
+}
+
+h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--text) 86%, transparent);
+}
+
+h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text) 94%, transparent);
+}
+
+.lede {
+  margin: 0 0 18px;
+  font-size: clamp(18px, 2.05vw, 22px);
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--text) 92%, transparent);
+  font-weight: 450;
+}
+
+p {
+  margin: 0 0 14px;
+  font-size: clamp(16px, 1.75vw, 18px);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.tools {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.tool {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 0;
+}
+
+.tool a {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.tool-link {
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 40%, transparent);
+}
+
+.tool-link:hover {
+  border-bottom-color: color-mix(in srgb, var(--link-hover) 70%, transparent);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+#tools {
+  margin-top: clamp(18px, 3.2vw, 34px);
+}
+
+.fine {
+  margin-top: clamp(18px, 3.2vw, 34px);
+  font-size: 14px;
+  color: var(--muted);
+}
