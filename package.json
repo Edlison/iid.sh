@@ -1,0 +1,25 @@
+{
+  "name": "iid.sh",
+  "version": "1.0.0",
+  "description": "iid.sh is a small collection of single-purpose web tools, each independently useful but consistently designed with a minimal UI for fast workflows and easy sharing.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edlison/iid.sh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Edlison/iid.sh/issues"
+  },
+  "homepage": "https://github.com/Edlison/iid.sh#readme",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}

@@ -3,6 +3,12 @@ export const siteConfig = {
   baseUrl: "https://iid.sh",
   tools: [
     {
+      id: "prompt",
+      name: "prompt",
+      description: "Manage prompts with version history.",
+      path: "/prompt",
+    },
+    {
       id: "color",
       name: "color",
       description: "Academic Color Palettes.",

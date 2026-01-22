@@ -2,27 +2,33 @@
   /* Typography */
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  --text: #0a0a0a;
-  --muted: rgba(10, 10, 10, 0.68);
-  --bg: #ffffff;
-  --hairline: rgba(10, 10, 10, 0.14);
-  --link: rgba(10, 10, 10, 0.86);
-  --link-hover: rgba(10, 10, 10, 1);
+  --text: #0b0b0f;
+  --muted: rgba(15, 23, 42, 0.6);
+  --bg: #f6f6f8;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-border: rgba(255, 255, 255, 0.9);
+  --surface-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  --hairline: rgba(15, 23, 42, 0.08);
+  --link: rgba(15, 23, 42, 0.82);
+  --link-hover: rgba(15, 23, 42, 1);
 
   /* Layout */
   --container: 670px;
   --page-pad: clamp(22px, 5vw, 52px);
-  --top: 70px;
+  --top: 48px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: rgba(255, 255, 255, 0.92);
-    --muted: rgba(255, 255, 255, 0.68);
-    --bg: #0a0a0a;
-    --hairline: rgba(255, 255, 255, 0.14);
-    --link: rgba(255, 255, 255, 0.88);
-    --link-hover: rgba(255, 255, 255, 1);
+    --text: #0b0b0f;
+    --muted: rgba(15, 23, 42, 0.6);
+    --bg: #f6f6f8;
+    --surface: rgba(255, 255, 255, 0.72);
+    --surface-border: rgba(255, 255, 255, 0.9);
+    --surface-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    --hairline: rgba(15, 23, 42, 0.08);
+    --link: rgba(15, 23, 42, 0.82);
+    --link-hover: rgba(15, 23, 42, 1);
   }
 }
 
@@ -32,7 +38,7 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   color: var(--text);
-  background: var(--bg);
+  background: radial-gradient(circle at top, #ffffff 0%, #f6f6f8 55%, #eef0f4 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -51,10 +57,19 @@ main {
 
 header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 18px;
   margin-bottom: clamp(18px, 3.2vw, 34px);
+}
+
+.glass-nav {
+  padding: 14px 22px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  box-shadow: var(--surface-shadow);
+  backdrop-filter: blur(18px) saturate(180%);
 }
 
 .brand {
@@ -76,19 +91,13 @@ nav {
 a {
   color: var(--link);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--link) 40%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 32%, transparent);
   padding-bottom: 2px;
 }
 
 a:hover {
   color: var(--link-hover);
   border-bottom-color: color-mix(in srgb, var(--link-hover) 70%, transparent);
-}
-
-.hairline {
-  height: 1px;
-  background: var(--hairline);
-  margin: clamp(18px, 3.2vw, 34px) 0;
 }
 
 h1 {
@@ -105,7 +114,7 @@ h2 {
   font-weight: 650;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--text) 86%, transparent);
+  color: color-mix(in srgb, var(--text) 78%, transparent);
 }
 
 h3 {
@@ -114,7 +123,7 @@ h3 {
   letter-spacing: -0.01em;
   line-height: 1.25;
   font-weight: 600;
-  color: color-mix(in srgb, var(--text) 94%, transparent);
+  color: color-mix(in srgb, var(--text) 92%, transparent);
 }
 
 .lede {
@@ -133,6 +142,19 @@ p {
   color: var(--muted);
 }
 
+.glass-panel {
+  padding: clamp(18px, 3vw, 28px);
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 22px;
+  box-shadow: var(--surface-shadow);
+  backdrop-filter: blur(20px) saturate(185%);
+}
+
+.glass-panel + .glass-panel {
+  margin-top: clamp(16px, 2.8vw, 24px);
+}
+
 .tools {
   list-style: none;
   padding: 0;
@@ -146,7 +168,18 @@ p {
   align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
-  padding: 10px 0;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(14px) saturate(170%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
 }
 
 .tool a {
@@ -159,7 +192,7 @@ p {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.01em;
-  border-bottom: 1px solid color-mix(in srgb, var(--link) 40%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 32%, transparent);
 }
 
 .tool-link:hover {
