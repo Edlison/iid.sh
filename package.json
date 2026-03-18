@@ -1,11 +1,12 @@
 {
   "name": "iid.sh",
-  "version": "1.0.0",
-  "description": "iid.sh is a small collection of single-purpose web tools, each independently useful but consistently designed with a minimal UI for fast workflows and easy sharing.",
+  "version": "2.0.0",
+  "private": true,
+  "description": "iid.sh — small tools, independently useful, consistently designed.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -14,12 +15,22 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Edlison/iid.sh/issues"
   },
   "homepage": "https://github.com/Edlison/iid.sh#readme",
+  "dependencies": {
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
   "devDependencies": {
-    "vite": "^7.3.1"
+    "@tailwindcss/postcss": "^4.1.8",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.6",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3"
   }
 }

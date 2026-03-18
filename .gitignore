@@ -1,5 +1,18 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# misc
 .DS_Store
-.cursor
-node_modules
-dist
-.vite
+*.pem
+.env*.local
+
+# debug
+npm-debug.log*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

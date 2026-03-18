@@ -1,26 +1,27 @@
 ## iid.sh
 
-iid.sh is a small collection of single-purpose web tools, each independently useful but consistently designed with a minimal UI for fast workflows and easy sharing.
+iid.sh is a small collection of single-purpose web tools, each independently useful but consistently designed with a minimal liquid-glass UI for fast workflows and easy sharing.
 
 ## Tech Stack
 
-- HTML + CSS + vanilla JavaScript
-- Vite (dev server, HMR, build)
+- Next.js (App Router, static export)
+- TypeScript
+- Tailwind CSS
 - GitHub Pages (deployment)
 
 ## Structure
 
-- `index.html` — main page markup
-- `assets/site.css` — global styles and layout
-- `assets/main.js` — page behavior and tool list rendering
-- `assets/config.js` — site config and tools metadata
+- `app/` — routes and layouts (homepage, tool pages)
+- `components/` — shared UI (glass nav, tool cards, tool shells)
+- `components/tools/` — individual tool implementations
+- `lib/tools.ts` — tool metadata (single source of truth)
 - `.github/workflows/deploy-pages.yml` — Pages build/deploy pipeline
 
-## Vite Commands
+## Commands
 
-- `npm run dev` — start dev server with HMR
-- `npm run build` — build to `dist`
-- `npm run preview` — preview the production build
+- `npm run dev` — start dev server
+- `npm run build` — build static export to `out/`
+- `npm start` — start production server (for local testing)
 
 ## Deployment
 
