@@ -3,16 +3,18 @@ import type { Tool } from "@/lib/tools";
 
 export function ToolShell({
   tool,
+  backHref = "/tools/",
   children,
 }: {
   tool: Tool;
+  backHref?: string;
   children: React.ReactNode;
 }) {
   return (
     <div>
       <div className="mb-6">
         <Link
-          href="/#tools"
+          href={backHref}
           className="inline-block text-[13px] font-medium text-[var(--text-secondary)] no-underline transition-colors hover:text-[var(--text)]"
         >
           ← Back to tools

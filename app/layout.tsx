@@ -16,13 +16,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-[radial-gradient(circle_at_top,#ffffff_0%,#f6f6f8_55%,#eef0f4_100%)] dark:bg-[radial-gradient(circle_at_top,#161618_0%,#0e0e12_55%,#0a0a0e_100%)]">
-        <main className="mx-auto min-h-screen max-w-[720px] px-[clamp(20px,5vw,48px)] pt-[clamp(24px,4vw,48px)] pb-10">
+        <div className="min-h-screen pt-2 pb-10">
           <GlassNav />
-          {children}
-          <footer className="mt-10 text-center text-[13px] text-[var(--text-secondary)]">
-            © {new Date().getFullYear()} iid.sh
-          </footer>
-        </main>
+          <main className="mx-auto max-w-[1080px] px-[clamp(20px,5vw,48px)]">
+            {children}
+            <footer className="mt-10 text-center text-[13px] text-[var(--text-secondary)]">
+              © {new Date().getFullYear()} iid.sh
+            </footer>
+          </main>
+        </div>
       </body>
     </html>
   );

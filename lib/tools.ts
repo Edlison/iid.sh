@@ -9,6 +9,8 @@ export interface Tool {
 export const siteConfig = {
   siteName: "iid.sh",
   baseUrl: "https://iid.sh",
+  toolsUrl: "https://tools.iid.sh",
+  dotUrl: "https://dot.iid.sh",
   tagline:
     "Independent and identically distributed — small tools, independently useful, consistently designed.",
 } as const;
