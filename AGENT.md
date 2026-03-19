@@ -20,7 +20,7 @@ Multi-subdomain static site built with Next.js App Router, TypeScript, and Tailw
 - **Glass UI** — `.glass`, `.glass-subtle`, `.glass-lift` CSS classes in `globals.css`. Design tokens via CSS custom properties. Glass is reserved for the nav bar and specific interactive elements (e.g. code blocks); content sections use plain typography with divider-based separation instead of card wrappers.
 - **Liquid glass action button** — `components/copy-button.tsx` adapts the `BTN003` snippet into a compact pill button with inline SVG distortion, pointer-reactive motion, and restrained highlight layers for clipboard actions.
 - **Apple-style section layout** — Large left-aligned section titles (bold, clamp-scaled) followed by flowing content. List items separated by `divide-y divide-[var(--hairline)]` rather than individual glass cards. Hero sections are card-free with large display type + subtitle. Content width matches nav at `max-w-[980px]`.
-- **Apple-style nav layout** — `GlassNav` sits outside the content `<main>`, uses a near-full-width glass bar (`mx-6`) sticky at `top-2`, and centers its inner row in `max-w-[980px]` with `px-6`. Main content uses a separate `max-w-[1080px]` container below it.
+- **Apple-style nav layout** — `GlassNav` sits outside the content `<main>`, uses a near-full-width glass bar (`mx-6`) sticky at `top-2`, and centers its inner row in `max-w-[980px]` with `px-6`. Main content uses a separate `max-w-[1080px]` container below it. The tools subdomain shares the same nav layout as the apex site: brand "iid.sh" linking back to the main site, with "Tools" and "Dotfiles" links on the right.
 
 ## Build
 

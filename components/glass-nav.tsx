@@ -17,27 +17,32 @@ export function GlassNav() {
     else if (host.startsWith("dot.")) setSite("dot");
   }, []);
 
-  const brand =
-    site === "tools"
-      ? "tools.iid.sh"
-      : site === "dot"
-        ? "dot.iid.sh"
-        : "iid.sh";
+  const brandLabel = site === "dot" ? "dot.iid.sh" : "iid.sh";
+  const brandHref = site === "apex" ? "/" : "https://iid.sh";
 
   return (
     <header className="glass sticky top-2 z-50 mx-6 mb-8 py-3.5">
       <div className="mx-auto flex max-w-[980px] items-center justify-between gap-4 px-6">
-        <Link
-          href="/"
-          className="text-[15px] font-semibold tracking-wide text-[var(--text)] no-underline"
-        >
-          {brand}
-        </Link>
+        {site === "apex" ? (
+          <Link
+            href={brandHref}
+            className="text-[15px] font-semibold tracking-wide text-[var(--text)] no-underline"
+          >
+            {brandLabel}
+          </Link>
+        ) : (
+          <a
+            href={brandHref}
+            className="text-[15px] font-semibold tracking-wide text-[var(--text)] no-underline"
+          >
+            {brandLabel}
+          </a>
+        )}
         <nav
           className="flex items-center gap-5 text-[14px]"
           aria-label="primary"
         >
-          {site === "apex" && (
+          {(site === "apex" || site === "tools") && (
             <>
               <a href="https://tools.iid.sh" className={navLink}>
                 Tools
@@ -46,11 +51,6 @@ export function GlassNav() {
                 Dotfiles
               </a>
             </>
-          )}
-          {site === "tools" && (
-            <a href="https://iid.sh" className={navLink}>
-              iid.sh
-            </a>
           )}
           {site === "dot" && (
             <>
