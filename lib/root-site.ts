@@ -1,3 +1,4 @@
+import { dotConfig } from "@/lib/dotfiles";
 import { siteConfig } from "@/lib/tools";
 
 export type RootSite = "apex" | "tools" | "dot";
@@ -9,13 +10,11 @@ export const rootSiteMetadata = {
   },
   tools: {
     title: "Tools — tools.iid.sh",
-    description:
-      "A collection of single-purpose web tools, independently useful, consistently designed.",
+    description: siteConfig.toolsTagline,
   },
   dot: {
     title: "Dotfiles — dot.iid.sh",
-    description:
-      "One-command dotfiles setup for zsh, oh-my-zsh, vim, tmux, and git.",
+    description: dotConfig.description,
   },
 } satisfies Record<RootSite, { title: string; description: string }>;
 

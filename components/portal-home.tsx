@@ -7,8 +7,20 @@ export function PortalHome() {
         <h1 className="mb-4 text-[clamp(44px,7vw,80px)] font-[700] leading-[1.04] tracking-[-0.04em] text-[var(--text)]">
           iid.sh
         </h1>
-        <p className="max-w-[600px] text-[clamp(17px,2.2vw,21px)] font-[400] leading-[1.4] tracking-[-0.01em] text-[var(--text-secondary)]">
-          {siteConfig.tagline}
+        <p className="max-w-[650px] text-[clamp(17px,2.2vw,21px)] font-[400] leading-[1.4] tracking-[-0.01em] text-[var(--text-secondary)]">
+          We begin with{" "}
+          <span className="font-medium text-[var(--text)]">
+            <strong className="font-[700]">i</strong>magination
+          </span>
+          , build{" "}
+          <span className="font-medium text-[var(--text)]">
+            <strong className="font-[700]">i</strong>ntelligence
+          </span>
+          , and{" "}
+          <span className="font-medium text-[var(--text)]">
+            <strong className="font-[700]">d</strong>esign
+          </span>{" "}
+          for humans.
         </p>
       </section>
 
@@ -26,8 +38,7 @@ export function PortalHome() {
                 Tools
               </h3>
               <p className="m-0 text-[15px] leading-relaxed text-[var(--text-secondary)]">
-                A collection of single-purpose web tools — prompt manager,
-                color palettes, diff viewer, and more.
+                {siteConfig.toolsTagline}
               </p>
             </div>
             <span className="mt-0.5 shrink-0 text-[14px] font-medium text-[var(--text-secondary)] transition-transform group-hover:translate-x-0.5">
@@ -43,8 +54,7 @@ export function PortalHome() {
                 Dotfiles
               </h3>
               <p className="m-0 text-[15px] leading-relaxed text-[var(--text-secondary)]">
-                One-command setup for zsh, oh-my-zsh, vim, tmux, and git —
-                quick start in a very new environment.
+                A minimal setup for building and thinking.
               </p>
             </div>
             <span className="mt-0.5 shrink-0 text-[14px] font-medium text-[var(--text-secondary)] transition-transform group-hover:translate-x-0.5">

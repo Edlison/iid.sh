@@ -9,7 +9,7 @@ export function ToolsLanding({ rootPath = false }: { rootPath?: boolean }) {
           Tools
         </h1>
         <p className="max-w-[600px] text-[clamp(17px,2.2vw,21px)] font-[400] leading-[1.4] tracking-[-0.01em] text-[var(--text-secondary)]">
-          {siteConfig.tagline}
+          {siteConfig.toolsTagline}
         </p>
       </section>
 

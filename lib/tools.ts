@@ -12,7 +12,8 @@ export const siteConfig = {
   toolsUrl: "https://tools.iid.sh",
   dotUrl: "https://dot.iid.sh",
   tagline:
-    "Independent and identically distributed — small tools, independently useful, consistently designed.",
+    "We begin with imagination, build intelligence, and design for humans.",
+  toolsTagline: "Minimal tools, designed for real use.",
 } as const;
 
 export const tools: Tool[] = [

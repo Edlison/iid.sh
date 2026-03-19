@@ -3,8 +3,7 @@ export const dotConfig = {
   installUrl: "https://dot.iid.sh/install",
   installCommand: "curl -fsSL https://dot.iid.sh/install | bash",
   tagline: "Dotfiles",
-  description:
-    "Personal dotfiles managed with zsh and oh-my-zsh. Clone, symlink, and go — one command sets up your entire shell environment.",
+  description: "A minimal setup for building and thinking.",
 } as const;
 
 export interface Feature {
