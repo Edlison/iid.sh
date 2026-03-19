@@ -56,7 +56,7 @@ export default async function RootToolPage({
   if (!Component) notFound();
 
   return (
-    <ToolShell tool={tool} backHref="/">
+    <ToolShell tool={tool} backHref="/tools/">
       <Component />
     </ToolShell>
   );
