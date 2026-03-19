@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/tools";
 import { ToolsLanding } from "@/components/tools-landing";
 
 export const metadata: Metadata = {
-  title: "Tools — iid.sh",
+  title: "iid.sh - Tools",
   description: siteConfig.toolsTagline,
 };
 

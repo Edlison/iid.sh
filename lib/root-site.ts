@@ -9,19 +9,18 @@ export const rootSiteMetadata = {
     description: siteConfig.tagline,
   },
   tools: {
-    title: "Tools — tools.iid.sh",
+    title: "iid.sh - Tools",
     description: siteConfig.toolsTagline,
   },
   dot: {
-    title: "Dotfiles — dot.iid.sh",
+    title: "iid.sh - Dotfiles",
     description: dotConfig.description,
   },
 } satisfies Record<RootSite, { title: string; description: string }>;
 
 export const rootPageMetadata = {
-  title: "iid.sh — Portal, Tools, and Dotfiles",
-  description:
-    "Shared static entrypoint for iid.sh, tools.iid.sh, and dot.iid.sh.",
+  title: siteConfig.siteName,
+  description: siteConfig.tagline,
 } as const;
 
 export function detectRootSite(hostname: string): RootSite {

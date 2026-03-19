@@ -37,7 +37,7 @@ export function generateMetadata({
     const tool = getToolBySlug(slug);
     if (!tool) return {};
     return {
-      title: `${tool.name} — tools.iid.sh`,
+      title: `iid.sh - ${tool.name}`,
       description: tool.description,
     };
   });

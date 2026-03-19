@@ -29,7 +29,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
     const tool = getToolBySlug(slug);
     if (!tool) return {};
     return {
-      title: `${tool.name} — iid.sh`,
+      title: `iid.sh - ${tool.name}`,
       description: tool.description,
     };
   });

@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { GlassNav } from "@/components/glass-nav";
 import { rootSiteMetadata } from "@/lib/root-site";
+import { siteConfig } from "@/lib/tools";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "iid.sh",
-  description:
-    "iid.sh — small tools, independently useful, consistently designed.",
+  title: siteConfig.siteName,
+  description: siteConfig.tagline,
 };
 
 const rootMetadataScript = `
