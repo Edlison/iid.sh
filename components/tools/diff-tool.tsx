@@ -69,8 +69,8 @@ function computeDiff(a: string, b: string): DiffLine[] {
 
 const lineStyles: Record<DiffLine["type"], string> = {
   equal: "text-[var(--text-secondary)]",
-  add: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
-  remove: "bg-red-500/10 text-red-700 dark:text-red-400 line-through",
+  add: "bg-emerald-500/10 text-emerald-700 ",
+  remove: "bg-red-500/10 text-red-700  line-through",
 };
 
 const linePrefix: Record<DiffLine["type"], string> = {
@@ -99,8 +99,8 @@ export function DiffTool() {
             value={textA}
             onChange={(e) => setTextA(e.target.value)}
             rows={10}
-            className="w-full resize-y rounded-xl border border-[var(--hairline)] bg-[var(--surface)] p-3 font-[var(--font-mono)] text-[14px] text-[var(--text)] placeholder:text-[var(--text-secondary)] focus:outline-2 focus:outline-[var(--accent)]"
-            placeholder="Paste original text…"
+            className="w-full resize-y rounded-[8px] border border-[var(--hairline)] bg-[var(--surface)] p-3 font-[var(--font-mono)] text-[14px] text-[var(--text)] placeholder:text-[var(--text-secondary)] focus:outline-2 focus:outline-[var(--accent)]"
+            placeholder="Paste original text..."
           />
         </div>
         <div className="glass-subtle p-4">
@@ -111,8 +111,8 @@ export function DiffTool() {
             value={textB}
             onChange={(e) => setTextB(e.target.value)}
             rows={10}
-            className="w-full resize-y rounded-xl border border-[var(--hairline)] bg-[var(--surface)] p-3 font-[var(--font-mono)] text-[14px] text-[var(--text)] placeholder:text-[var(--text-secondary)] focus:outline-2 focus:outline-[var(--accent)]"
-            placeholder="Paste modified text…"
+            className="w-full resize-y rounded-[8px] border border-[var(--hairline)] bg-[var(--surface)] p-3 font-[var(--font-mono)] text-[14px] text-[var(--text)] placeholder:text-[var(--text-secondary)] focus:outline-2 focus:outline-[var(--accent)]"
+            placeholder="Paste modified text..."
           />
         </div>
       </div>

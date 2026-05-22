@@ -113,7 +113,7 @@ export function PromptTool() {
       <div className="glass-subtle flex flex-col gap-2 p-4">
         <button
           onClick={handleNew}
-          className="cursor-pointer rounded-xl border border-[var(--hairline)] bg-[var(--surface)] px-3 py-2 text-[13px] font-semibold text-[var(--text)] transition-colors hover:bg-[var(--surface-hover)]"
+          className="cursor-pointer rounded-[8px] border border-[var(--hairline)] bg-[var(--surface)] px-3 py-2 text-[13px] font-semibold text-[var(--text)] transition-colors hover:bg-[var(--surface-hover)]"
         >
           + New Prompt
         </button>
@@ -122,7 +122,7 @@ export function PromptTool() {
             <button
               key={p.id}
               onClick={() => handleSelect(p)}
-              className={`cursor-pointer truncate rounded-lg border-0 px-3 py-2 text-left text-[13px] transition-colors ${
+              className={`cursor-pointer truncate rounded-[8px] border-0 px-3 py-2 text-left text-[13px] transition-colors ${
                 p.id === activeId
                   ? "bg-[var(--accent)]/12 font-semibold text-[var(--accent)]"
                   : "bg-transparent text-[var(--text-secondary)] hover:bg-[var(--surface-hover)]"
@@ -144,21 +144,21 @@ export function PromptTool() {
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder="Prompt title…"
-          className="rounded-xl border border-[var(--hairline)] bg-[var(--surface)] px-4 py-2.5 text-[15px] font-medium text-[var(--text)] placeholder:text-[var(--text-secondary)] focus:outline-2 focus:outline-[var(--accent)]"
+          placeholder="Prompt title..."
+          className="rounded-[8px] border border-[var(--hairline)] bg-[var(--surface)] px-4 py-2.5 text-[15px] font-medium text-[var(--text)] placeholder:text-[var(--text-secondary)] focus:outline-2 focus:outline-[var(--accent)]"
         />
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={12}
-          placeholder="Write your prompt…"
-          className="w-full resize-y rounded-xl border border-[var(--hairline)] bg-[var(--surface)] p-4 font-[var(--font-mono)] text-[14px] leading-[1.6] text-[var(--text)] placeholder:text-[var(--text-secondary)] focus:outline-2 focus:outline-[var(--accent)]"
+          placeholder="Write your prompt..."
+          className="w-full resize-y rounded-[8px] border border-[var(--hairline)] bg-[var(--surface)] p-4 font-[var(--font-mono)] text-[14px] leading-[1.6] text-[var(--text)] placeholder:text-[var(--text-secondary)] focus:outline-2 focus:outline-[var(--accent)]"
         />
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={handleSave}
             disabled={!title.trim()}
-            className="cursor-pointer rounded-xl bg-[var(--accent)] px-5 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[var(--accent-hover)] disabled:cursor-not-allowed disabled:opacity-40"
+            className="cursor-pointer rounded-[8px] bg-[var(--accent)] px-5 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-[var(--accent-hover)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             {activeId ? "Save Version" : "Create"}
           </button>
@@ -166,13 +166,13 @@ export function PromptTool() {
             <>
               <button
                 onClick={() => setShowHistory(!showHistory)}
-                className="cursor-pointer rounded-xl border border-[var(--hairline)] bg-[var(--surface)] px-4 py-2 text-[13px] font-medium text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-hover)]"
+                className="cursor-pointer rounded-[8px] border border-[var(--hairline)] bg-[var(--surface)] px-4 py-2 text-[13px] font-medium text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface-hover)]"
               >
                 {showHistory ? "Hide History" : "History"}
               </button>
               <button
                 onClick={handleDelete}
-                className="cursor-pointer rounded-xl border border-red-200 bg-transparent px-4 py-2 text-[13px] font-medium text-red-500 transition-colors hover:bg-red-50 dark:border-red-900 dark:hover:bg-red-950"
+                className="cursor-pointer rounded-[8px] border border-red-200 bg-transparent px-4 py-2 text-[13px] font-medium text-red-500 transition-colors hover:bg-red-50 "
               >
                 Delete
               </button>
@@ -181,7 +181,7 @@ export function PromptTool() {
         </div>
 
         {showHistory && active && active.versions.length > 0 && (
-          <div className="mt-2 rounded-xl border border-[var(--hairline)] bg-[var(--surface)] p-4">
+          <div className="mt-2 rounded-[8px] border border-[var(--hairline)] bg-[var(--surface)] p-4">
             <h4 className="mb-2 text-[13px] font-medium text-[var(--text-secondary)]">
               Version History
             </h4>
@@ -189,14 +189,14 @@ export function PromptTool() {
               {[...active.versions].reverse().map((v, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between gap-3 rounded-lg bg-[var(--surface-hover)] px-3 py-2"
+                  className="flex items-center justify-between gap-3 rounded-[8px] bg-[var(--surface-hover)] px-3 py-2"
                 >
                   <span className="truncate font-[var(--font-mono)] text-[12px] text-[var(--text-secondary)]">
                     {new Date(v.timestamp).toLocaleString()}
                   </span>
                   <button
                     onClick={() => handleRestore(v)}
-                    className="shrink-0 cursor-pointer rounded-lg border-0 bg-transparent px-2 py-1 text-[12px] font-medium text-[var(--accent)] transition-colors hover:bg-[var(--accent)]/10"
+                    className="shrink-0 cursor-pointer rounded-[8px] border-0 bg-transparent px-2 py-1 text-[12px] font-medium text-[var(--accent)] transition-colors hover:bg-[var(--accent)]/10"
                   >
                     Restore
                   </button>

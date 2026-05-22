@@ -29,7 +29,7 @@ export function ImgTool() {
           onClick={() => inputRef.current?.click()}
           className="glass-subtle glass-lift flex w-full cursor-pointer flex-col items-center gap-2 border border-dashed border-[var(--hairline)] px-6 py-10 text-center"
         >
-          <span className="text-3xl">🖼</span>
+          <span className="text-[28px] font-semibold text-[var(--text)]">IMG</span>
           <span className="text-[14px] font-medium text-[var(--text)]">
             Click to select an image
           </span>
@@ -41,13 +41,13 @@ export function ImgTool() {
         {preview && (
           <div className="mt-4">
             <p className="mb-2 text-[13px] font-medium text-[var(--text-secondary)]">
-              Preview — {fileName}
+              Preview - {fileName}
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={preview}
               alt="Preview"
-              className="max-h-64 w-auto rounded-xl border border-[var(--hairline)]"
+              className="max-h-64 w-auto rounded-[8px] border border-[var(--hairline)]"
             />
           </div>
         )}
@@ -55,12 +55,12 @@ export function ImgTool() {
         <div className="mt-4 flex items-center gap-3">
           <button
             disabled
-            className="cursor-not-allowed rounded-xl bg-[var(--accent)] px-5 py-2 text-[13px] font-semibold text-white opacity-50"
+            className="cursor-not-allowed rounded-[8px] bg-[var(--accent)] px-5 py-2 text-[13px] font-semibold text-white opacity-50"
           >
             Upload
           </button>
           <span className="text-[12px] text-[var(--text-secondary)]">
-            Requires backend — coming soon
+            Requires backend - coming soon
           </span>
         </div>
       </div>

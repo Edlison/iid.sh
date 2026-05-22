@@ -55,7 +55,7 @@ function Swatch({ color }: { color: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="group relative flex h-16 flex-1 cursor-pointer items-end justify-center rounded-xl border-0 p-2 transition-transform duration-200 hover:scale-105 focus:outline-2 focus:outline-offset-2 focus:outline-[var(--accent)]"
+      className="group relative flex h-16 flex-1 cursor-pointer items-end justify-center rounded-[8px] border-0 p-2 transition-transform duration-200 hover:scale-105 focus:outline-2 focus:outline-offset-2 focus:outline-[var(--accent)]"
       style={{ backgroundColor: color }}
       title={`Copy ${color}`}
     >

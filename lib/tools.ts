@@ -4,6 +4,7 @@ export interface Tool {
   description: string;
   slug: string;
   interactive: boolean;
+  href?: string;
 }
 
 export const siteConfig = {
@@ -13,16 +14,19 @@ export const siteConfig = {
   dotUrl: "https://dot.iid.sh",
   tagline:
     "We begin with imagination, build intelligence, and design for humans.",
-  toolsTagline: "Minimal tools, designed for real use.",
+  description:
+    "A coherent product matrix for AI-native interfaces, shared runtime infrastructure, focused apps, and vertical agents.",
+  toolsTagline: "Minimal utilities for daily building, writing, and shipping.",
 } as const;
 
 export const tools: Tool[] = [
   {
-    id: "prompt",
-    name: "Prompt",
-    description: "Manage prompts with version history.",
-    slug: "prompt",
+    id: "dotfiles",
+    name: "Dotfiles",
+    description: "A minimal terminal baseline for building and thinking.",
+    slug: "dot",
     interactive: true,
+    href: "/dot/",
   },
   {
     id: "color",
@@ -31,47 +35,12 @@ export const tools: Tool[] = [
     slug: "color",
     interactive: true,
   },
-  {
-    id: "pastebin",
-    name: "Pastebin",
-    description: "Share a snippet of text or code.",
-    slug: "pastebin",
-    interactive: false,
-  },
-  {
-    id: "url",
-    name: "TinyURL",
-    description: "Shorten a long URL into something easy to share.",
-    slug: "url",
-    interactive: false,
-  },
-  {
-    id: "diff",
-    name: "Diff",
-    description: "Compare two texts and see what changed.",
-    slug: "diff",
-    interactive: true,
-  },
-  {
-    id: "img",
-    name: "Img Upload",
-    description: "Upload an image and get a shareable link.",
-    slug: "img",
-    interactive: false,
-  },
-  {
-    id: "status",
-    name: "Status",
-    description: "Check service health and availability.",
-    slug: "status",
-    interactive: false,
-  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
-  return tools.find((t) => t.slug === slug);
+  return tools.find((t) => !t.href && t.slug === slug);
 }
 
 export function getAllSlugs(): string[] {
-  return tools.map((t) => t.slug);
+  return tools.filter((t) => !t.href).map((t) => t.slug);
 }

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ── Design tokens ─────────────────────────────────────── */
+/* Design tokens */
 
 :root {
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -8,34 +8,25 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
-  --text: #0b0b0f;
-  --text-secondary: rgba(15, 23, 42, 0.6);
-  --bg: #f6f6f8;
-  --surface: rgba(255, 255, 255, 0.72);
-  --surface-hover: rgba(255, 255, 255, 0.88);
-  --surface-border: rgba(255, 255, 255, 0.9);
-  --surface-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
-  --hairline: rgba(15, 23, 42, 0.08);
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
+  --bg: #f7f7f7;
+  --bg-elevated: #ffffff;
+  --text: #111111;
+  --text-secondary: rgba(17, 17, 17, 0.66);
+  --text-tertiary: rgba(17, 17, 17, 0.46);
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-solid: #ffffff;
+  --surface-hover: rgba(255, 255, 255, 0.96);
+  --surface-border: rgba(17, 17, 17, 0.1);
+  --surface-shadow: 0 18px 60px rgba(17, 17, 17, 0.08);
+  --hairline: rgba(17, 17, 17, 0.12);
+  --accent: #111111;
+  --accent-hover: #2c2c2c;
+  --accent-contrast: #ffffff;
+  --success: #2f6f4e;
+  --warning: #8a6f2a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #f0f0f4;
-    --text-secondary: rgba(240, 240, 244, 0.6);
-    --bg: #0e0e12;
-    --surface: rgba(255, 255, 255, 0.06);
-    --surface-hover: rgba(255, 255, 255, 0.1);
-    --surface-border: rgba(255, 255, 255, 0.1);
-    --surface-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-    --hairline: rgba(255, 255, 255, 0.08);
-    --accent: #60a5fa;
-    --accent-hover: #3b82f6;
-  }
-}
-
-/* ── Base ───────────────────────────────────────────────── */
+/* Base */
 
 *,
 *::before,
@@ -48,6 +39,10 @@ body {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -58,33 +53,36 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* ── Glass utilities ────────────────────────────────────── */
+a {
+  color: inherit;
+}
+
+::selection {
+  color: var(--accent-contrast);
+  background: var(--accent);
+}
+
+/* Surface utilities */
 
 .glass {
   background: var(--surface);
   border: 1px solid var(--surface-border);
-  border-radius: 20px;
+  border-radius: 8px;
   box-shadow: var(--surface-shadow);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
 }
 
 .glass-subtle {
   background: var(--surface);
   border: 1px solid var(--surface-border);
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-  backdrop-filter: blur(14px) saturate(170%);
-  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.04);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
 }
 
-@media (prefers-color-scheme: dark) {
-  .glass-subtle {
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* ── Smooth transitions ─────────────────────────────────── */
+/* Motion */
 
 .glass-lift {
   transition: transform 0.22s ease-out, box-shadow 0.22s ease-out;
@@ -92,11 +90,16 @@ body {
 
 .glass-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 20px 44px rgba(17, 17, 17, 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  .glass-lift:hover {
-    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

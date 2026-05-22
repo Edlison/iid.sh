@@ -3,21 +3,9 @@ import { getAllSlugs, getToolBySlug } from "@/lib/tools";
 import { ToolShell } from "@/components/tool-shell";
 
 import { ColorTool } from "@/components/tools/color-tool";
-import { DiffTool } from "@/components/tools/diff-tool";
-import { PromptTool } from "@/components/tools/prompt-tool";
-import { PastebinTool } from "@/components/tools/pastebin-tool";
-import { UrlTool } from "@/components/tools/url-tool";
-import { ImgTool } from "@/components/tools/img-tool";
-import { StatusTool } from "@/components/tools/status-tool";
 
 const toolComponents: Record<string, React.ComponentType> = {
   color: ColorTool,
-  diff: DiffTool,
-  prompt: PromptTool,
-  pastebin: PastebinTool,
-  url: UrlTool,
-  img: ImgTool,
-  status: StatusTool,
 };
 
 export function generateStaticParams() {

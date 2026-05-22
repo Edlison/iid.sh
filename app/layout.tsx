@@ -7,7 +7,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: siteConfig.siteName,
-  description: siteConfig.tagline,
+  description: siteConfig.description,
 };
 
 const rootMetadataScript = `
@@ -38,18 +38,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-[radial-gradient(circle_at_top,#ffffff_0%,#f6f6f8_55%,#eef0f4_100%)] dark:bg-[radial-gradient(circle_at_top,#161618_0%,#0e0e12_55%,#0a0a0e_100%)]">
+      <body className="min-h-screen bg-[var(--bg)]">
         <Script id="root-host-metadata" strategy="beforeInteractive">
           {rootMetadataScript}
         </Script>
-        <div className="min-h-screen pt-2 pb-10">
+        <div className="min-h-screen">
           <GlassNav />
-          <main className="mx-auto max-w-[1080px] px-[clamp(20px,5vw,48px)]">
+          <main>
             {children}
-            <footer className="mt-10 text-center text-[13px] text-[var(--text-secondary)]">
-              © {new Date().getFullYear()} iid.sh
-            </footer>
           </main>
+          <footer className="mx-auto flex max-w-[1200px] flex-col gap-3 border-t border-[var(--hairline)] px-5 py-8 text-[13px] text-[var(--text-secondary)] md:flex-row md:items-center md:justify-between md:px-8">
+            <span>iid.sh</span>
+            <span>(c) {new Date().getFullYear()} iid.sh</span>
+          </footer>
         </div>
       </body>
     </html>

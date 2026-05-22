@@ -42,18 +42,18 @@ export function CopyButton({ text }: { text: string }) {
         onClick={handleCopy}
         onPointerMove={handlePointerMove}
         onPointerLeave={resetPointer}
-        className="glass-subtle group relative shrink-0 cursor-pointer overflow-hidden rounded-full border-[color-mix(in_srgb,var(--surface-border)_78%,transparent)] bg-[color-mix(in_srgb,var(--surface)_84%,transparent)] px-4 py-1.5 text-[13px] font-semibold tracking-[-0.01em] text-[var(--text)] transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-[color-mix(in_srgb,var(--surface-hover)_88%,transparent)] hover:shadow-[0_16px_32px_rgba(15,23,42,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_srgb,var(--accent)_55%,white)] active:scale-[0.98] dark:hover:shadow-[0_18px_34px_rgba(0,0,0,0.28)]"
+        className="glass-subtle group relative shrink-0 cursor-pointer overflow-hidden rounded-[8px] border-[color-mix(in_srgb,var(--surface-border)_78%,transparent)] bg-[color-mix(in_srgb,var(--surface)_84%,transparent)] px-4 py-1.5 text-[13px] font-semibold text-[var(--text)] transition-[transform,box-shadow,background-color] duration-200 ease-out hover:bg-[color-mix(in_srgb,var(--surface-hover)_88%,transparent)] hover:shadow-[0_16px_32px_rgba(17,17,17,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color-mix(in_srgb,var(--accent)_55%,white)] active:scale-[0.98]"
         style={{
           transform: `translate(${pointerOffset.x}px, ${pointerOffset.y}px)`,
         }}
       >
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-[1px] rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.4),rgba(255,255,255,0.08))]"
+          className="pointer-events-none absolute inset-[1px] rounded-[8px] bg-[linear-gradient(180deg,rgba(255,255,255,0.4),rgba(255,255,255,0.08))]"
         />
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -inset-[12%] rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.45),rgba(255,255,255,0.14)_48%,transparent_72%)] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
+          className="pointer-events-none absolute -inset-[12%] rounded-[8px] bg-[linear-gradient(135deg,rgba(255,255,255,0.45),rgba(255,255,255,0.14)_55%,transparent_80%)] opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
           style={{ filter: `url(#${distortionId})` }}
         />
         <span

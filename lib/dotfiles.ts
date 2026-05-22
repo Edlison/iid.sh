@@ -20,7 +20,7 @@ export const features: Feature[] = [
   {
     title: "Symlinked Configs",
     description:
-      "Creates symlinks for .gitconfig, .tmux.conf, .vimrc, and .zshrc — version-controlled and clean.",
+      "Creates symlinks for .gitconfig, .tmux.conf, .vimrc, and .zshrc - version-controlled and clean.",
   },
   {
     title: "Modular ZSH",
@@ -30,7 +30,7 @@ export const features: Feature[] = [
   {
     title: "Git & SSH Ready",
     description:
-      "Ships with .gitconfig and SSH config patterns for GitHub — drop in your key and go.",
+      "Ships with .gitconfig and SSH config patterns for GitHub - drop in your key and go.",
   },
   {
     title: "Tmux & Vim",

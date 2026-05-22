@@ -6,7 +6,7 @@ export type RootSite = "apex" | "tools" | "dot";
 export const rootSiteMetadata = {
   apex: {
     title: siteConfig.siteName,
-    description: siteConfig.tagline,
+    description: siteConfig.description,
   },
   tools: {
     title: "iid.sh - Tools",
@@ -20,7 +20,7 @@ export const rootSiteMetadata = {
 
 export const rootPageMetadata = {
   title: siteConfig.siteName,
-  description: siteConfig.tagline,
+  description: siteConfig.description,
 } as const;
 
 export function detectRootSite(hostname: string): RootSite {
