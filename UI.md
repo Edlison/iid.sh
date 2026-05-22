@@ -11,7 +11,7 @@ Keep project-bound visual assets under `public/`.
 | Asset | Path | Usage | Notes |
 | --- | --- | --- | --- |
 | Product matrix hero | `public/images/iid-matrix-hero.png` | Homepage hero visual | Bright raster image showing connected product surfaces. Keep it text-free and aligned with the neutral IID style. |
-| Dotfiles installer | `public/install` | Raw install endpoint | Served directly for `dot.iid.sh/install`. Do not treat it as a design asset. |
+| Dotfiles installer | `public/tools/dot/install` | Raw install endpoint | Served directly for `iid.sh/tools/dot/install`. Do not treat it as a design asset. |
 
 Generated or verification-only files must stay out of version control. `tmp/` is ignored and is used by `npm run verify:ui` for screenshots and JSON results.
 
@@ -27,7 +27,7 @@ iid.sh should feel like a precise product ecosystem:
 The homepage slogan is:
 
 ```text
-We begin with imagination, build intelligence, and design for humans.
+We begin with Imagination, build Intelligence, and Design for humans.
 ```
 
 ## Color System
@@ -69,8 +69,11 @@ Font stack:
 
 - Sans: `ui-sans-serif`, system UI, `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, `Roboto`, `Helvetica`, `Arial`.
 - Mono: `ui-monospace`, `SFMono-Regular`, `Menlo`, `Monaco`, `Consolas`, `Liberation Mono`, `Courier New`.
+- Editorial / Claude-style accent: `var(--font-editorial)`, currently `Georgia, "Times New Roman", serif`, exposed through `.editorial` and `.editorial-italic`.
 
 Do not use negative letter spacing. Do not scale type with viewport width formulas. Use breakpoint-defined sizes.
+
+Use the editorial accent only in tightly scoped brand moments: `.editorial` for the full homepage slogan, and `.editorial-italic` for the suffix after the shared `Sh` prefix in product names. Keep the `I`, `I`, and `D` slogan initials uppercase and bold inside the same non-italic editorial treatment.
 
 | Role | Mobile | Desktop | Weight | Line height | Usage |
 | --- | --- | --- | --- | --- | --- |
@@ -104,7 +107,7 @@ The homepage must follow this order:
 2. Landing hero: eyebrow, `iid.sh`, slogan with bold IID initials, and ecosystem description.
 3. Project summary cards: a short row/grid explaining the main project categories.
 4. Product matrix cards.
-5. Tools/Dotfiles support section.
+5. Tools support section.
 6. Contact band.
 
 Do not add an input field, prompt bar, fake command bar, chat composer, or "what can I help with" pattern to the hero.
@@ -118,7 +121,7 @@ Do not add an input field, prompt bar, fake command bar, chat composer, or "what
 - Desktop links: `13px`, regular, black, `gap-7`.
 - Desktop product and tools menus: one-column panels, `360px` wide, `8px` radius, thin dividers.
 - Mobile nav: icon-only menu button, `40px` square, `8px` radius.
-- Mobile menu lists product cards first, then Tools with Dotfiles and Color, then Contact.
+- Mobile menu lists product cards first, then Tools with the current utility set, then Contact. Top-level Products, Tools, and Contact links must navigate to `/product/`, `/tools/`, and `/contact/` instead of hash anchors.
 
 ### Product Cards
 
@@ -152,6 +155,7 @@ Use these for the homepage overview below the hero.
 
 - Primary action: black background, white text, `8px` radius, `14px` semibold, `12px` vertical padding.
 - Secondary action: white background, hairline border, black text.
+- Use `components/action-link.tsx` for repeated primary or secondary text links so icon, focus, and contrast behavior stay consistent. Its global `.action-link-primary` and `.action-link-secondary` color rules intentionally sit outside Tailwind layers so base anchor color inheritance cannot override them.
 - Icon-only action: square, `40px`, `8px` radius.
 - Use Lucide icons for arrows, menus, tools, product concepts, and utility actions.
 
@@ -191,7 +195,7 @@ Manual visual checks:
 - Homepage has no input-like hero entry point.
 - Mobile homepage has no horizontal scroll.
 - Product menu opens on desktop and mobile.
-- Shea, Shft, Shap, Shyr link out.
-- Shil and Shox show coming soon and do not link.
-- Tools shows Dotfiles, Color, and a restrained `More coming soon...` note.
+- Shea, Shft, and Shap link out.
+- Shil, Shyr, and Shox show coming soon and do not link.
+- Tools shows the current utility set and a restrained `More coming soon...` note.
 - Dotfiles routes still render.

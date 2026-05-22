@@ -1,6 +1,6 @@
 #!/bin/bash
-# Dotfiles installer — https://dot.iid.sh
-# Usage: curl -fsSL https://dot.iid.sh/install | bash
+# Dotfiles installer — https://iid.sh/tools/dot/install
+# Usage: curl -fsSL https://iid.sh/tools/dot/install | bash
 
 set -e
 

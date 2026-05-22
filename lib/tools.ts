@@ -3,6 +3,7 @@ export interface Tool {
   name: string;
   description: string;
   slug: string;
+  aliases?: string[];
   interactive: boolean;
   href?: string;
 }
@@ -16,17 +17,21 @@ export const siteConfig = {
     "We begin with imagination, build intelligence, and design for humans.",
   description:
     "A coherent product matrix for AI-native interfaces, shared runtime infrastructure, focused apps, and vertical agents.",
-  toolsTagline: "Minimal utilities for daily building, writing, and shipping.",
+  toolsTagline:
+    "A focused set of utilities for daily building, writing, and shipping.",
+  toolsDescription:
+    "A focused group of utilities that stays close to the product system: clean defaults, quick references, and small helpers for daily building.",
 } as const;
 
 export const tools: Tool[] = [
   {
     id: "dotfiles",
     name: "Dotfiles",
-    description: "A minimal terminal baseline for building and thinking.",
-    slug: "dot",
+    description:
+      "An AI-native configuration layer for shells, profiles, environment variables, and terminal defaults.",
+    slug: "dotfiles",
+    aliases: ["dot"],
     interactive: true,
-    href: "/dot/",
   },
   {
     id: "color",
@@ -38,9 +43,13 @@ export const tools: Tool[] = [
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
-  return tools.find((t) => !t.href && t.slug === slug);
+  return tools.find(
+    (t) => !t.href && (t.slug === slug || t.aliases?.includes(slug)),
+  );
 }
 
 export function getAllSlugs(): string[] {
-  return tools.filter((t) => !t.href).map((t) => t.slug);
+  return tools
+    .filter((t) => !t.href)
+    .flatMap((t) => [t.slug, ...(t.aliases ?? [])]);
 }

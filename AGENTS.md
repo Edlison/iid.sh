@@ -9,7 +9,7 @@ iid.sh is a static Next.js App Router site for the IID product ecosystem. The ap
 The homepage slogan is:
 
 ```text
-We begin with imagination, build intelligence, and design for humans.
+We begin with Imagination, build Intelligence, and Design for humans.
 ```
 
 The product matrix is the primary content model:
@@ -46,6 +46,8 @@ Core rules:
 - `components/root-page.tsx`: switches the root page between apex, tools, and dotfiles after hydration.
 - `components/portal-home.tsx`: apex landing page.
 - `components/glass-nav.tsx`: global navigation with product matrix menu.
+- `app/product/page.tsx`: product matrix page.
+- `app/contact/page.tsx`: contact page.
 - `app/tools/page.tsx`: tools landing.
 - `app/tools/[slug]/page.tsx`: path-based tool detail pages.
 - `app/[slug]/page.tsx`: root-level tool detail pages for `tools.iid.sh/<slug>/`.
@@ -61,7 +63,7 @@ All subdomains serve the same static output:
 
 - `iid.sh`: apex product matrix.
 - `tools.iid.sh`: tools landing at `/`, plus root-level tool routes.
-- `dot.iid.sh`: dotfiles landing at `/`, plus `/install`.
+- `dot.iid.sh`: dotfiles landing at `/`; install script is served from `iid.sh/tools/dot/install`.
 
 `app/layout.tsx` includes a small pre-hydration metadata script so root title and description are adjusted for `tools.` and `dot.` hosts before React hydrates.
 
@@ -71,7 +73,7 @@ All subdomains serve the same static output:
 - `lib/tools.ts`: tools registry and site-level config.
 - `lib/dotfiles.ts`: dotfiles copy, install command, and feature list.
 - `UI.md`: UI system, typography, color, layout, components, and verification rules.
-- `public/install`: raw dotfiles installer.
+- `public/tools/dot/install`: raw dotfiles installer.
 - `public/images/iid-matrix-hero.png`: generated raster hero asset for the product matrix.
 
 ## Components
@@ -122,7 +124,7 @@ Before handing off UI work:
 - Inspect `http://localhost:3000/` at desktop and mobile widths.
 - Confirm the homepage hero is slogan-first and has no input-like entry point.
 - Confirm the product menu opens on desktop and mobile.
-- Confirm Shea, Shft, Shap, and Shyr are links.
-- Confirm Shil and Shox show coming soon and are not links.
+- Confirm Shea, Shft, and Shap are links.
+- Confirm Shil, Shyr, and Shox show coming soon and are not links.
 - Confirm tools and dotfiles routes still render.
 - Confirm there is no horizontal overflow, overlapping text, blank hero image, hydration error, or console runtime error.

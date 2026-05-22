@@ -1,9 +1,10 @@
 export const dotConfig = {
   repoUrl: "https://github.com/Edlison/.dotfiles",
-  installUrl: "https://dot.iid.sh/install",
-  installCommand: "curl -fsSL https://dot.iid.sh/install | bash",
+  installUrl: "https://iid.sh/tools/dot/install",
+  installCommand: "curl -fsSL https://iid.sh/tools/dot/install | bash",
   tagline: "Dotfiles",
-  description: "A minimal setup for building and thinking.",
+  description:
+    "AI-native dotfiles for managing shell profiles, environment variables, tool configuration, and terminal defaults in one place.",
 } as const;
 
 export interface Feature {
@@ -13,33 +14,33 @@ export interface Feature {
 
 export const features: Feature[] = [
   {
-    title: "oh-my-zsh Bootstrap",
+    title: "AI-Native Config Layer",
     description:
-      "Automatically installs oh-my-zsh if not present, giving you a rich shell experience out of the box.",
+      "Manage AI tooling, profile state, environment variables, and local configuration as one coherent system.",
   },
   {
-    title: "Symlinked Configs",
+    title: "All-in-One Management",
     description:
-      "Creates symlinks for .gitconfig, .tmux.conf, .vimrc, and .zshrc - version-controlled and clean.",
+      "Keep shell, editor, tmux, git, SSH, and machine-level defaults under version-controlled dotfiles.",
   },
   {
-    title: "Modular ZSH",
+    title: "ZSH Baseline",
     description:
-      "Settings, aliases, and environment variables split into separate files under zsh/ for easy customization.",
+      "Built on zsh and oh-my-zsh, with aliases, settings, and environment variables split into modular files.",
   },
   {
-    title: "Git & SSH Ready",
+    title: "Profile And Environment",
     description:
-      "Ships with .gitconfig and SSH config patterns for GitHub - drop in your key and go.",
+      "Centralize profile setup, exported variables, and repeatable machine bootstrap details for AI-native work.",
   },
   {
-    title: "Tmux & Vim",
+    title: "Terminal Defaults",
     description:
-      "Pre-configured .tmux.conf and .vimrc for a productive terminal workflow from day one.",
+      "Ship with practical tmux, vim, git, and SSH defaults so a new terminal starts from a known baseline.",
   },
   {
     title: "Optional Extensions",
     description:
-      "Lightweight by default. Install extras like pyenv and uv on demand via extensions/install.sh.",
+      "Stay lightweight by default, then add extras such as pyenv, uv, or other local tools through extensions.",
   },
 ];

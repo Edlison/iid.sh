@@ -14,6 +14,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { ContactSection } from "@/components/contact-section";
 import { products, type Product } from "@/lib/products";
 import { siteConfig, tools } from "@/lib/tools";
 import { ProductName } from "@/components/product-name";
@@ -50,27 +51,39 @@ const projectSummaries = [
   },
 ];
 
-function IidSlogan() {
+function SloganWord({
+  initial,
+  rest,
+}: {
+  initial: string;
+  rest: string;
+}) {
   return (
-    <>
-      We begin with{" "}
-      <strong className="font-black">
-        i
-      </strong>
-      magination, build{" "}
-      <strong className="font-black">
-        i
-      </strong>
-      ntelligence, and{" "}
-      <strong className="font-black">
-        d
-      </strong>
-      esign for humans.
-    </>
+    <span className="editorial">
+      <strong className="font-black">{initial}</strong>
+      <span className="font-normal">{rest}</span>
+    </span>
   );
 }
 
-function ProductCard({ product, index }: { product: Product; index: number }) {
+function IidSlogan() {
+  return (
+    <span className="editorial">
+      We begin with{" "}
+      <SloganWord initial="I" rest="magination" />, build{" "}
+      <SloganWord initial="I" rest="ntelligence" />, and{" "}
+      <SloganWord initial="D" rest="esign" /> for humans.
+    </span>
+  );
+}
+
+export function ProductCard({
+  product,
+  index,
+}: {
+  product: Product;
+  index: number;
+}) {
   const Icon = productIcons[product.id] ?? Blocks;
   const isLive = product.status === "live" && product.href;
 
@@ -96,7 +109,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         <h3 className="text-[24px] font-semibold leading-tight text-[var(--text)] md:text-[28px]">
           <ProductName
             name={product.name}
-            restClassName="font-normal italic font-serif"
+            restClassName="editorial-italic font-normal"
           />
         </h3>
         <p className="mt-2 text-[15px] leading-[1.45] text-[var(--text-secondary)]">
@@ -130,6 +143,42 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         </div>
       )}
     </motion.article>
+  );
+}
+
+export function ProductMatrixSection({
+  className = "border-b border-[var(--hairline)]",
+}: {
+  className?: string;
+}) {
+  return (
+    <section
+      id="products"
+      className={`${className} px-5 py-12 md:px-8 md:py-20`}
+      aria-labelledby="products-heading"
+    >
+      <div className="mx-auto max-w-[1280px]">
+        <div className="mb-9 grid gap-6 md:mb-12 md:grid-cols-[0.82fr_1fr] md:items-end">
+          <h2
+            id="products-heading"
+            className="text-[42px] font-semibold leading-[1.05] text-[var(--text)] md:text-[64px]"
+          >
+            Product matrix
+          </h2>
+          <p className="max-w-[720px] text-[18px] leading-[1.55] text-[var(--text-secondary)]">
+            Interface, infrastructure, apps, tools, and vertical agents share
+            one design language so each product can stand alone or compose into
+            a larger workflow.
+          </p>
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {products.map((product, index) => (
+            <ProductCard key={product.id} product={product} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -212,37 +261,7 @@ export function PortalHome() {
         </div>
       </section>
 
-      <section
-        id="products"
-        className="border-b border-[var(--hairline)] px-5 py-12 md:px-8 md:py-20"
-        aria-labelledby="products-heading"
-      >
-        <div className="mx-auto max-w-[1280px]">
-          <div className="mb-9 grid gap-6 md:mb-12 md:grid-cols-[0.82fr_1fr] md:items-end">
-            <h2
-              id="products-heading"
-              className="text-[42px] font-semibold leading-[1.05] text-[var(--text)] md:text-[64px]"
-            >
-              Product matrix
-            </h2>
-            <p className="max-w-[720px] text-[18px] leading-[1.55] text-[var(--text-secondary)]">
-              Interface, infrastructure, apps, tools, and vertical agents share
-              one design language so each product can stand alone or compose
-              into a larger workflow.
-            </p>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-            {products.map((product, index) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <ProductMatrixSection />
 
       <section
         id="tools"
@@ -258,12 +277,10 @@ export function PortalHome() {
               id="tools-heading"
               className="text-[42px] font-semibold leading-[1.05] text-[var(--text)] md:text-[64px]"
             >
-              Tools for daily work
+              Tools
             </h2>
             <p className="mt-6 max-w-[560px] text-[18px] leading-[1.55] text-[var(--text-secondary)]">
-              Dotfiles and color utilities remain close to the product system:
-              a clean terminal baseline and a focused palette tool for daily
-              building.
+              {siteConfig.toolsDescription}
             </p>
           </div>
 
@@ -292,28 +309,7 @@ export function PortalHome() {
         </div>
       </section>
 
-      <section
-        id="contact"
-        className="px-5 py-12 md:px-8 md:py-20"
-        aria-labelledby="contact-heading"
-      >
-        <div className="mx-auto grid max-w-[1280px] gap-8 rounded-[8px] border border-[var(--hairline)] bg-[var(--surface-solid)] p-6 md:grid-cols-[1fr_auto] md:items-end md:p-8">
-          <div>
-            <h2
-              id="contact-heading"
-              className="text-[42px] font-semibold leading-[1.05] text-[var(--text)] md:text-[64px]"
-            >
-              Contact
-            </h2>
-            <p className="mt-5 max-w-[680px] text-[18px] leading-[1.55] text-[var(--text-secondary)]">
-              For product, partnership, or ecosystem conversations.
-            </p>
-          </div>
-          <div className="text-[18px] font-semibold leading-tight text-[var(--text)] md:text-[22px]">
-            hi@iid.sh
-          </div>
-        </div>
-      </section>
+      <ContactSection />
     </>
   );
 }

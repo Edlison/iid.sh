@@ -16,6 +16,10 @@ const navLink =
 const dropdownPanel =
   "absolute left-1/2 top-full w-[360px] -translate-x-1/2 pt-5";
 
+const PRODUCT_PATH = "/product/";
+const TOOLS_PATH = "/tools/";
+const CONTACT_PATH = "/contact/";
+
 function ProductMatrixMenu({ onNavigate }: { onNavigate?: () => void }) {
   return (
     <div className="grid gap-px overflow-hidden rounded-[8px] border border-[var(--hairline)] bg-[var(--hairline)]">
@@ -28,7 +32,7 @@ function ProductMatrixMenu({ onNavigate }: { onNavigate?: () => void }) {
                 <div className="text-[14px] font-semibold leading-tight text-[var(--text)]">
                   <ProductName
                     name={product.name}
-                    restClassName="font-normal italic font-serif"
+                    restClassName="editorial-italic font-normal"
                   />
                 </div>
                 <div className="mt-1 text-[12px] leading-snug text-[var(--text-secondary)]">
@@ -191,7 +195,7 @@ export function GlassNav() {
         <nav className="hidden h-16 items-center gap-7 md:flex" aria-label="primary">
           <DropdownShell
             label="Products"
-            href="#products"
+            href={PRODUCT_PATH}
             open={productsOpen}
             onOpen={() => {
               setProductsOpen(true);
@@ -203,7 +207,7 @@ export function GlassNav() {
           </DropdownShell>
           <DropdownShell
             label="Tools"
-            href="#tools"
+            href={TOOLS_PATH}
             open={toolsOpen}
             onOpen={() => {
               setToolsOpen(true);
@@ -213,7 +217,7 @@ export function GlassNav() {
           >
             <ToolsMenu onNavigate={() => setToolsOpen(false)} />
           </DropdownShell>
-          <a href="#contact" className={navLink}>
+          <a href={CONTACT_PATH} className={navLink}>
             Contact
           </a>
         </nav>
@@ -241,13 +245,19 @@ export function GlassNav() {
             <div className="space-y-5 px-5 py-5">
               <div>
                 <div className="mb-3 text-[12px] font-semibold uppercase text-[var(--text-tertiary)]">
-                  Products
+                  <a
+                    href={PRODUCT_PATH}
+                    className="text-[12px] font-semibold uppercase text-[var(--text-tertiary)] no-underline"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Products
+                  </a>
                 </div>
                 <ProductMatrixMenu onNavigate={() => setMobileOpen(false)} />
               </div>
               <div className="grid gap-3 text-[15px]">
                 <a
-                  href="#tools"
+                  href={TOOLS_PATH}
                   className="border-t border-[var(--hairline)] pt-4 no-underline"
                   onClick={() => setMobileOpen(false)}
                 >
@@ -255,7 +265,7 @@ export function GlassNav() {
                 </a>
                 <ToolsMenu onNavigate={() => setMobileOpen(false)} />
                 <a
-                  href="#contact"
+                  href={CONTACT_PATH}
                   className="border-t border-[var(--hairline)] pt-4 no-underline"
                   onClick={() => setMobileOpen(false)}
                 >

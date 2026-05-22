@@ -16,6 +16,9 @@ export function ToolsLanding({ rootPath = false }: { rootPath?: boolean }) {
           <p className="mt-7 max-w-[720px] text-[20px] leading-[1.5] text-[var(--text-secondary)] md:text-[24px]">
             {siteConfig.toolsTagline}
           </p>
+          <p className="mt-4 max-w-[680px] text-[17px] leading-[1.55] text-[var(--text-secondary)] md:text-[18px]">
+            {siteConfig.toolsDescription}
+          </p>
           <a
             href={siteConfig.baseUrl}
             className="mt-9 inline-flex items-center gap-2 rounded-[8px] border border-[var(--hairline)] bg-[var(--surface-solid)] px-4 py-3 text-[14px] font-semibold text-[var(--text)] no-underline transition-colors hover:bg-[#f3f3f3]"

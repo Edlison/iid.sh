@@ -7,6 +7,7 @@
     "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+  --font-editorial: Georgia, "Times New Roman", serif;
 
   --bg: #f7f7f7;
   --bg-elevated: #ffffff;
@@ -62,6 +63,17 @@ a {
   background: var(--accent);
 }
 
+/* Typography utilities */
+
+.editorial {
+  font-family: var(--font-editorial);
+}
+
+.editorial-italic {
+  font-family: var(--font-editorial);
+  font-style: italic;
+}
+
 /* Surface utilities */
 
 .glass {
@@ -91,6 +103,14 @@ a {
 .glass-lift:hover {
   transform: translateY(-2px);
   box-shadow: 0 20px 44px rgba(17, 17, 17, 0.1);
+}
+
+.action-link-primary {
+  color: var(--accent-contrast);
+}
+
+.action-link-secondary {
+  color: var(--text);
 }
 
 @media (prefers-reduced-motion: reduce) {

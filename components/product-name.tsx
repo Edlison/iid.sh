@@ -22,11 +22,7 @@ export function ProductName({
       <span aria-hidden="true" className={joinClasses(prefixClassName)}>
         Sh
       </span>
-      <span
-        aria-hidden="true"
-        style={{ fontFamily: "Georgia, Times New Roman, serif" }}
-        className={joinClasses(restClassName)}
-      >
+      <span aria-hidden="true" className={joinClasses(restClassName)}>
         {name.slice(2)}
       </span>
     </span>

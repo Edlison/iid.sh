@@ -1,5 +1,6 @@
-import { ArrowUpRight, Code2, TerminalSquare } from "lucide-react";
+import { Code2, TerminalSquare } from "lucide-react";
 import { dotConfig, features } from "@/lib/dotfiles";
+import { ActionLink } from "@/components/action-link";
 import { CopyButton } from "@/components/copy-button";
 
 export function DotLanding() {
@@ -26,7 +27,7 @@ export function DotLanding() {
               Install
             </h2>
             <p className="mt-4 max-w-[420px] text-[16px] leading-[1.55] text-[var(--text-secondary)]">
-              One command for a clean terminal baseline.
+              One command for the AI-native configuration baseline.
             </p>
           </div>
           <div className="flex min-w-0 flex-col gap-4 rounded-[8px] border border-[var(--hairline)] bg-[var(--surface-solid)] p-4 shadow-[0_16px_50px_rgba(17,17,17,0.06)] sm:flex-row sm:items-center">
@@ -64,20 +65,17 @@ export function DotLanding() {
 
       <section className="px-5 py-10 md:px-8 md:py-16">
         <div className="mx-auto flex max-w-[1200px] flex-col gap-4 md:flex-row">
-          <a
+          <ActionLink
             href={dotConfig.repoUrl}
-            className="inline-flex items-center gap-2 rounded-[8px] bg-[var(--accent)] px-4 py-3 text-[14px] font-semibold text-[var(--accent-contrast)] no-underline transition-transform hover:scale-[1.02]"
+            variant="primary"
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub <ArrowUpRight className="h-4 w-4" />
-          </a>
-          <a
-            href={dotConfig.installUrl}
-            className="inline-flex items-center gap-2 rounded-[8px] border border-[var(--hairline)] bg-[var(--surface-solid)] px-4 py-3 text-[14px] font-semibold text-[var(--text)] no-underline transition-colors hover:bg-[#f3f3f3]"
-          >
-            Raw install script <ArrowUpRight className="h-4 w-4" />
-          </a>
+            GitHub
+          </ActionLink>
+          <ActionLink href={dotConfig.installUrl}>
+            Raw install script
+          </ActionLink>
         </div>
       </section>
     </>

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { DotLanding } from "@/components/dot-landing";
 import { getAllSlugs, getToolBySlug } from "@/lib/tools";
 import { ToolShell } from "@/components/tool-shell";
 
@@ -6,6 +7,8 @@ import { ColorTool } from "@/components/tools/color-tool";
 
 const toolComponents: Record<string, React.ComponentType> = {
   color: ColorTool,
+  dot: DotLanding,
+  dotfiles: DotLanding,
 };
 
 export function generateStaticParams() {
@@ -34,6 +37,10 @@ export default async function ToolPage({
 
   const Component = toolComponents[slug];
   if (!Component) notFound();
+
+  if (tool.id === "dotfiles") {
+    return <Component />;
+  }
 
   return (
     <ToolShell tool={tool}>
