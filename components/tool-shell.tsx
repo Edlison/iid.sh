@@ -23,17 +23,14 @@ export function ToolShell({
           </Link>
         </div>
 
-        <section
-          className="mb-6 rounded-[8px] border border-[var(--hairline)] bg-[var(--surface-solid)] p-6 shadow-[0_18px_60px_rgba(17,17,17,0.06)] md:p-8"
-          aria-label="tool header"
-        >
+        <header className="mb-8 border-b border-[var(--hairline)] pb-8 md:mb-10 md:pb-10">
           <h1 className="text-[36px] font-semibold leading-tight text-[var(--text)] md:text-[52px]">
             {tool.name}
           </h1>
           <p className="mt-3 max-w-[680px] text-[17px] leading-[1.55] text-[var(--text-secondary)]">
             {tool.description}
           </p>
-        </section>
+        </header>
 
         {children}
       </div>

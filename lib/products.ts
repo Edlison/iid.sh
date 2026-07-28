@@ -1,28 +1,24 @@
-export type ProductStatus = "live" | "coming-soon";
-
-export interface Product {
+interface ProductBase {
   id: string;
   name: string;
   role: string;
   summary: string;
   description: string;
   accent: string;
-  href?: string;
-  status: ProductStatus;
 }
 
-export const products: Product[] = [
-  {
-    id: "shea",
-    name: "Shea",
-    role: "All-in-one AI entry",
-    summary: "The front door for agents, sessions, tools, and workflows.",
-    description:
-      "A unified TUI and WebUI for interacting with intelligence without splitting work across isolated chat surfaces.",
-    accent: "#dfe7ff",
-    href: "https://shea.iid.sh",
-    status: "live",
-  },
+interface LiveProduct extends ProductBase {
+  status: "live";
+  href: string;
+}
+
+interface ComingSoonProduct extends ProductBase {
+  status: "coming-soon";
+}
+
+export type Product = LiveProduct | ComingSoonProduct;
+
+export const products: readonly Product[] = [
   {
     id: "shft",
     name: "Shft",
@@ -35,6 +31,16 @@ export const products: Product[] = [
     status: "live",
   },
   {
+    id: "shea",
+    name: "Shea",
+    role: "All-in-one AI entry",
+    summary: "The front door for agents, sessions, tools, and workflows.",
+    description:
+      "A unified TUI and WebUI for interacting with intelligence without splitting work across isolated chat surfaces.",
+    accent: "#dfe7ff",
+    status: "coming-soon",
+  },
+  {
     id: "shap",
     name: "Shap",
     role: "App platform",
@@ -42,8 +48,7 @@ export const products: Product[] = [
     description:
       "The platform surface for discovering and invoking small applications across Shea, Shft, and vertical agents.",
     accent: "#f4e6ce",
-    href: "https://shap.iid.sh",
-    status: "live",
+    status: "coming-soon",
   },
   {
     id: "shil",
@@ -76,11 +81,3 @@ export const products: Product[] = [
     status: "coming-soon",
   },
 ];
-
-export const liveProducts = products.filter(
-  (product) => product.status === "live",
-);
-
-export const comingSoonProducts = products.filter(
-  (product) => product.status === "coming-soon",
-);

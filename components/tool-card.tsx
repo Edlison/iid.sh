@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import type { Tool } from "@/lib/tools";
+import { getToolHref, type Tool } from "@/lib/tools";
 
 export function ToolCard({
   tool,
@@ -9,7 +9,7 @@ export function ToolCard({
   tool: Tool;
   rootPath?: boolean;
 }) {
-  const href = tool.href ?? (rootPath ? `/${tool.slug}/` : `/tools/${tool.slug}/`);
+  const href = getToolHref(tool, rootPath);
 
   return (
     <Link
@@ -28,7 +28,7 @@ export function ToolCard({
         </p>
       </div>
       <div className="mt-8 flex items-center justify-between border-t border-[var(--hairline)] pt-4 text-[13px] font-medium text-[var(--text-secondary)]">
-        <span>{tool.interactive ? "Interactive" : "Planned"}</span>
+        <span>Open</span>
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       </div>
     </Link>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProductMatrixSection } from "@/components/portal-home";
+import { ProductMatrixSection } from "@/components/product-matrix";
 import { siteConfig } from "@/lib/tools";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProductPage() {
-  return <ProductMatrixSection className="" />;
+  return <ProductMatrixSection className="" headingLevel="h1" />;
 }

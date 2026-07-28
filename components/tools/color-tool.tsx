@@ -1,5 +1,6 @@
 "use client";
 
+import { Check } from "lucide-react";
 import { useState } from "react";
 
 interface Palette {
@@ -53,16 +54,25 @@ function Swatch({ color }: { color: string }) {
   }
 
   return (
-    <button
-      onClick={handleCopy}
-      className="group relative flex h-16 flex-1 cursor-pointer items-end justify-center rounded-[8px] border-0 p-2 transition-transform duration-200 hover:scale-105 focus:outline-2 focus:outline-offset-2 focus:outline-[var(--accent)]"
-      style={{ backgroundColor: color }}
-      title={`Copy ${color}`}
-    >
-      <span className="rounded-md bg-black/30 px-1.5 py-0.5 text-[11px] font-medium text-white opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
-        {copied ? "Copied!" : color}
-      </span>
-    </button>
+    <div className="min-w-0">
+      <button
+        type="button"
+        onClick={handleCopy}
+        className="flex aspect-square w-full cursor-pointer items-center justify-center rounded-[8px] border border-black/10 transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+        style={{ backgroundColor: color }}
+        aria-label={`Copy ${color}`}
+        title={`Copy ${color}`}
+      >
+        {copied ? (
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-black/45 text-white">
+            <Check className="h-4 w-4" />
+          </span>
+        ) : null}
+      </button>
+      <code className="mt-2 block text-center font-[var(--font-mono)] text-[10px] text-[var(--text-secondary)] sm:text-[11px]">
+        {color}
+      </code>
+    </div>
   );
 }
 
@@ -70,16 +80,19 @@ export function ColorTool() {
   return (
     <div className="space-y-4">
       {palettes.map((palette) => (
-        <div key={palette.name} className="glass-subtle p-5">
+        <section
+          key={palette.name}
+          className="rounded-[8px] border border-[var(--hairline)] bg-[var(--surface-solid)] p-4 sm:p-5"
+        >
           <h3 className="mb-3 text-[15px] font-semibold text-[var(--text)]">
             {palette.name}
           </h3>
-          <div className="flex gap-2">
+          <div className="grid grid-cols-5 gap-2">
             {palette.colors.map((color) => (
               <Swatch key={color} color={color} />
             ))}
           </div>
-        </div>
+        </section>
       ))}
     </div>
   );

@@ -1,20 +1,10 @@
-import { notFound } from "next/navigation";
-import { DotLanding } from "@/components/dot-landing";
-import { getAllSlugs, getToolBySlug } from "@/lib/tools";
-import { ToolShell } from "@/components/tool-shell";
-
-import { ColorTool } from "@/components/tools/color-tool";
-
-const toolComponents: Record<string, React.ComponentType> = {
-  color: ColorTool,
-  dot: DotLanding,
-  dotfiles: DotLanding,
-};
+import { getToolMetadata, ToolRoute } from "@/components/tool-route";
+import { getAllToolSlugs } from "@/lib/tools";
 
 const RESERVED = new Set(["tools", "dot", "product", "contact"]);
 
 export function generateStaticParams() {
-  return getAllSlugs()
+  return getAllToolSlugs()
     .filter((slug) => !RESERVED.has(slug))
     .map((slug) => ({ slug }));
 }
@@ -24,14 +14,7 @@ export function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  return params.then(({ slug }) => {
-    const tool = getToolBySlug(slug);
-    if (!tool) return {};
-    return {
-      title: `iid.sh - ${tool.name}`,
-      description: tool.description,
-    };
-  });
+  return getToolMetadata(params);
 }
 
 export default async function RootToolPage({
@@ -39,20 +22,5 @@ export default async function RootToolPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const { slug } = await params;
-  const tool = getToolBySlug(slug);
-  if (!tool) notFound();
-
-  const Component = toolComponents[slug];
-  if (!Component) notFound();
-
-  if (tool.id === "dotfiles") {
-    return <Component />;
-  }
-
-  return (
-    <ToolShell tool={tool} backHref="/tools/">
-      <Component />
-    </ToolShell>
-  );
+  return <ToolRoute params={params} rootPath />;
 }

@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { products } from "@/lib/products";
-import { siteConfig, tools } from "@/lib/tools";
+import { getToolHref, siteConfig, tools } from "@/lib/tools";
 import { ProductName } from "@/components/product-name";
 
 type Site = "apex" | "tools" | "dot";
@@ -86,7 +86,7 @@ function ToolsMenu({ onNavigate }: { onNavigate?: () => void }) {
       {tools.map((tool) => (
         <a
           key={tool.id}
-          href={tool.href ?? `/tools/${tool.slug}/`}
+          href={getToolHref(tool)}
           onClick={onNavigate}
           className="group bg-[var(--surface-solid)] p-4 no-underline transition-colors hover:bg-[#f3f3ee] focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[var(--accent)]"
         >
@@ -96,7 +96,7 @@ function ToolsMenu({ onNavigate }: { onNavigate?: () => void }) {
                 {tool.name}
               </div>
               <div className="mt-1 text-[12px] leading-snug text-[var(--text-secondary)]">
-                {tool.interactive ? "Interactive" : "Planned"}
+                Open
               </div>
             </div>
             <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-[var(--text-secondary)] transition-transform group-hover:translate-x-0.5" />

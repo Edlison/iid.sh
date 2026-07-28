@@ -1,8 +1,12 @@
 export function ContactSection({
   className = "",
+  headingLevel = "h2",
 }: {
   className?: string;
+  headingLevel?: "h1" | "h2";
 }) {
+  const Heading = headingLevel;
+
   return (
     <section
       id="contact"
@@ -11,12 +15,12 @@ export function ContactSection({
     >
       <div className="mx-auto grid max-w-[1280px] gap-8 rounded-[8px] border border-[var(--hairline)] bg-[var(--surface-solid)] p-6 md:grid-cols-[1fr_auto] md:items-end md:p-8">
         <div>
-          <h1
+          <Heading
             id="contact-heading"
             className="text-[42px] font-semibold leading-[1.05] text-[var(--text)] md:text-[64px]"
           >
             Contact
-          </h1>
+          </Heading>
           <p className="mt-5 max-w-[680px] text-[18px] leading-[1.55] text-[var(--text-secondary)]">
             For product, partnership, or ecosystem conversations.
           </p>
